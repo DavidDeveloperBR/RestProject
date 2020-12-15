@@ -25,6 +25,7 @@ public class Servidor{
 	  return "Hello Word!! (texto)";
 	}
 	
+	//http://localhost:8084/RestProject/rest/sjba/texto/fred
 	@GET
 	@Path("/texto/{parametro}")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -33,30 +34,33 @@ public class Servidor{
 		return "o paraemtro passado foi " + parametro;
 	}
 	
-	
+	//http://localhost:8084/RestProject/rest/sjba/json/fred
 	@GET
-	@Path("/json/")
+	@Path("/json/{parametro1}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String helloWordJSON() {
-	  return "{}";
+	public String helloWordJSON(@PathParam("parametro1") String parametro) {
+	  return "o paraemtro passado foi " + parametro;
 	}
 	//formato json
 	
-		//passar por pârametro uma string e um id - metodos diferentes e impressos no servidor
+	//passar por pârametro uma string e um id - metodos diferentes e impressos no servidor
 	
+	//http://localhost:8084/RestProject/rest/sjba/xml/fred
 	@GET
+	@Path("/xml/{parametro2}")
 	@Produces(MediaType.TEXT_XML)
-	public String helloWordXML() {
-	  return "<?xml version=\"1.0\"?> <hello> Hello Word!! (xml) </hello>";
+	public String helloWordXML(@PathParam("parametro2") String parametro) {
+	  return "<?xml version=\"1.0\"?> <hello> "+ parametro +"(xml) </hello>";
 	}
-
+	//http://localhost:8084/RestProject/rest/sjba/html/fred
 	@GET
+	@Path("/html/{parametro3}")
 	@Produces(MediaType.TEXT_HTML)
-	public String helloWordHTML() {
+	public String helloWordHTML(@PathParam("parametro3") String parametro) {
 	  return "<html>"
 	  			+ "<title>Hello Word</title> "
 	  			+ "<body>"
-	  				+ "<h1>Hello Word (html)</h1>"
+	  				+ "<h1>"+ parametro +"</h1>"
 	  			+ "</body>"
 	  		+ "</html> ";
 	}

@@ -12,8 +12,7 @@ public class Cliente {
 
 	public static void main(String[] args) {
 		
-		Client client = ClientBuilder.newClient( new ClientConfig().register( LoggingFilter.class ) );
-		WebTarget webTarget = client.target("http://localhost:80/ZapZap-WS/rest").path("texto").path("fred");
+		String webTarget = client.target("http://localhost:8084/RestProject/rest").path("texto").path("fred");
 		 
 		
 		
